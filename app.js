@@ -113,3 +113,25 @@
     }
     loop();
   })();
+
+  // Download counter — live total from GitHub release assets. Stays hidden
+  // until the number is worth showing; fails silently (offline, rate limit).
+  (function () {
+    var el = document.getElementById("dlCount");
+    if (!el || !window.fetch) return;
+    var THRESHOLD = 100;
+    fetch("https://api.github.com/repos/Anurag-patil-26/Rewake-Windows/releases")
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (releases) {
+        var total = releases.reduce(function (sum, rel) {
+          return sum + (rel.assets || []).reduce(function (s, a) {
+            return s + (a.download_count || 0);
+          }, 0);
+        }, 0);
+        if (total >= THRESHOLD) {
+          el.textContent = total.toLocaleString("en") + " DOWNLOADS AND COUNTING";
+          el.hidden = false;
+        }
+      })
+      .catch(function () {});
+  })();

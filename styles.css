@@ -223,6 +223,7 @@
   @media (max-width: 640px) { .dl { padding: 28px 18px; } }
   .dl h2 { margin-bottom: 8px; }
   .dl .req { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin: 18px 0 0; }
+  .dl .dl-count { color: var(--accent); margin-top: 6px; }
   .smart {
     margin-top: 26px; border-left: 2px solid var(--accent);
     padding: 4px 0 4px 18px; color: var(--muted); font-size: 13.5px; max-width: 66ch;
