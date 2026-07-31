@@ -8,7 +8,7 @@ index.html    page content
 styles.css    styling (design tokens in :root)
 app.js        scroll reveal + hero demo animation
 assets\       screenshots
-Media\        installer zip served by the Download buttons
+Media\        local copy of the installer zip (buttons currently link to GitHub Releases)
 ```
 
 ## Run
@@ -24,5 +24,6 @@ server's root). Keep all files together.
 
 1. Run `build-release.ps1` in Rewake-Windows — it bumps the version in
    `index.html`, including the zip filename the buttons link to.
-2. Drop the new `Rewake-Setup-v<version>.zip` into `Media\`, remove the old one.
+2. Upload the new `Rewake-Setup-v<version>.zip` to the GitHub release — the
+   Download buttons link straight to the release asset.
 3. Replace screenshots in `assets\` if the UI changed (same filenames).
