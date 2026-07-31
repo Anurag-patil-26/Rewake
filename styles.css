@@ -157,7 +157,10 @@
   @media (prefers-reduced-motion: reduce) { .chip.busy { animation: none; } }
 
   .hero-shot { margin-top: 28px; }
-  .hero-shot img { width: 100%; }
+  /* Full-width shots are taller than most viewports at 1032px — cap and center
+     them so the whole screenshot is visible without scrolling. */
+  .hero-shot, .how-shot { max-width: 860px; margin-left: auto; margin-right: auto; }
+  .hero-shot img, .how-shot img { width: 100%; }
 
   /* ============ Sections ============ */
   section { padding: 84px 0 0; }
